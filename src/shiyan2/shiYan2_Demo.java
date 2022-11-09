@@ -20,6 +20,10 @@ public class shiYan2_Demo {
             System.out.println("cm=" + cp1.minPoint(cp2));
             System.out.println("cm.arg=" + new DecimalFormat("#.###").format(cp1.minPoint(cp2).getArg()));
             System.out.println("cm*4=" + cp1.minPoint(cp2).multiReal(4));
+            System.out.println("add " + cp1.complexAdd(cp2));
+            System.out.println("sub " + cp1.complexSub(cp2));
+            System.out.println("mu " + cp1.complexMulti(cp2));
+            System.out.println("div " + cp1.complexDiv(cp2));
         }
     }
 }

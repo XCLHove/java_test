@@ -25,15 +25,11 @@ public class Complex {
         return imaginPart;
     }
     Complex complexAdd(Complex a){
-        Complex temp_complex = new Complex();
-        temp_complex.setReal(this.getReal() + a.getReal());
-        temp_complex.setImagin(this.getImagin() + a.getImagin());
+        Complex temp_complex = new Complex((this.getReal() + a.getReal()),(this.getImagin() + a.getImagin()));
         return temp_complex;
     }
     Complex complexSub(Complex a){
-        Complex temp_complex = new Complex();
-        temp_complex.setReal(this.getReal() - a.getReal());
-        temp_complex.setImagin(this.getImagin() - a.getImagin());
+        Complex temp_complex = new Complex((this.getReal() - a.getReal()),(this.getImagin() - a.getImagin()));
         return temp_complex;
     }
     Complex complexMulti(Complex a){
@@ -43,12 +39,10 @@ public class Complex {
         return temp_complex;
     }
     Complex complexDiv(Complex a){
-        Complex temp_complex = new Complex();
         Complex temp_complex_a = new Complex(a.getReal(),-1 * a.getImagin());
         double temp_number = Math.pow(a.getReal(),2) + Math.pow(a.getImagin(),2);
         Complex temp_complex2 =this.complexMulti(temp_complex_a);
-        temp_complex.setReal(temp_complex2.getReal() / temp_number);
-        temp_complex.setImagin(temp_complex2.getImagin() / temp_number);
+        Complex temp_complex = new Complex((temp_complex2.getReal() / temp_number),(temp_complex2.getImagin() / temp_number));
         return temp_complex;
     }
     Complex multiReal(double d){
