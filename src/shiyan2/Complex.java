@@ -12,42 +12,42 @@ public class Complex {
         this.realPart = r;
         this.imaginPart = i;
     }
-    void setReal(double sr){
+    void s_R(double sr){
         this.realPart = sr;
     }
-    void setImagin(double si){
+    void s_I(double si){
         this.imaginPart = si;
     }
-    double getReal(){
+    double g_R(){
         return realPart;
     }
-    double getImagin(){
+    double g_I(){
         return imaginPart;
     }
     Complex complexAdd(Complex a){
-        Complex temp_complex = new Complex((this.getReal() + a.getReal()),(this.getImagin() + a.getImagin()));
-        return temp_complex;
+        Complex t_c = new Complex((this.g_R() + a.g_R()),(this.g_I() + a.g_I()));
+        return t_c;
     }
     Complex complexSub(Complex a){
-        Complex temp_complex = new Complex((this.getReal() - a.getReal()),(this.getImagin() - a.getImagin()));
-        return temp_complex;
+        Complex t_c = new Complex((this.g_R() - a.g_R()),(this.g_I() - a.g_I()));
+        return t_c;
     }
     Complex complexMulti(Complex a){
-        Complex temp_complex = new Complex();
-        temp_complex.setReal( ( this.getReal() * a.getReal() ) - (this.getImagin() * a.getImagin() ) );
-        temp_complex.setImagin( ( this.getReal() * a.getImagin() ) + ( this.getImagin() * a.getReal() ) );
-        return temp_complex;
+        Complex t_c = new Complex();
+        t_c.s_R( ( this.g_R() * a.g_R() ) - (this.g_I() * a.g_I() ) );
+        t_c.s_I( ( this.g_R() * a.g_I() ) + ( this.g_I() * a.g_R() ) );
+        return t_c;
     }
     Complex complexDiv(Complex a){
-        Complex temp_complex_a = new Complex(a.getReal(),-1 * a.getImagin());
-        double temp_number = Math.pow(a.getReal(),2) + Math.pow(a.getImagin(),2);
-        Complex temp_complex2 =this.complexMulti(temp_complex_a);
-        Complex temp_complex = new Complex((temp_complex2.getReal() / temp_number),(temp_complex2.getImagin() / temp_number));
-        return temp_complex;
+        Complex t_c_a = new Complex(a.g_R(),-1 * a.g_I());
+        double t_num = Math.pow(a.g_R(),2) + Math.pow(a.g_I(),2);
+        Complex t_c2 =this.complexMulti(t_c_a);
+        Complex t_c = new Complex((t_c2.g_R() / t_num),(t_c2.g_I() / t_num));
+        return t_c;
     }
     Complex multiReal(double d){
-        Complex temp_complex = new Complex(this.realPart * d,this.imaginPart * d);
-        return temp_complex;
+        Complex t_c = new Complex(this.realPart * d,this.imaginPart * d);
+        return t_c;
     }
     double getArg(){
         return Math.atan(this.imaginPart / this.realPart);
@@ -56,37 +56,37 @@ public class Complex {
         return new Complex(((this.realPart + c.realPart) / 2),((this.imaginPart + c.imaginPart) / 2));
     }
     boolean equals(Complex a){
-        return ( ( this.getReal() == a.getReal() ) && ( this.getImagin() == a.getImagin() ) );
+        return ( ( this.g_R() == a.g_R() ) && ( this.g_I() == a.g_I() ) );
     }
     public String toString() {
         if (this.realPart != 0) {
             if (this.imaginPart > 0) {
                 if (this.imaginPart == 1) {
-                    return new DecimalFormat("#.###").format(this.realPart) + "+i";
+                    return new DecimalFormat("#.##").format(this.realPart) + "+i";
                 } else {
-                    return new DecimalFormat("#.###").format(this.realPart) + "+" + new DecimalFormat("#.###").format(this.imaginPart) + "i";
+                    return new DecimalFormat("#.##").format(this.realPart) + "+" + new DecimalFormat("#.##").format(this.imaginPart) + "i";
                 }
             } else if (this.imaginPart < 0) {
                 if (this.imaginPart == -1) {
-                    return new DecimalFormat("#.###").format(this.realPart) + "-i";
+                    return new DecimalFormat("#.##").format(this.realPart) + "-i";
                 } else {
-                    return new DecimalFormat("#.###").format(this.realPart) + new DecimalFormat("#.###").format(this.imaginPart) + "i";
+                    return new DecimalFormat("#.##").format(this.realPart) + new DecimalFormat("#.##").format(this.imaginPart) + "i";
                 }
             } else {
-                return new DecimalFormat("#.###").format(this.realPart) + "";
+                return new DecimalFormat("#.##").format(this.realPart) + "";
             }
         } else {
             if (this.imaginPart > 0) {
                 if (this.imaginPart == 1) {
                     return "i";
                 } else {
-                    return new DecimalFormat("#.###").format(this.imaginPart) + "i";
+                    return new DecimalFormat("#.##").format(this.imaginPart) + "i";
                 }
             } else if (this.imaginPart < 0) {
                 if (this.imaginPart == -1) {
                     return "-i";
                 } else {
-                    return new DecimalFormat("#.###").format(this.imaginPart) + "i";
+                    return new DecimalFormat("#.##").format(this.imaginPart) + "i";
                 }
             } else {
                 return "0";
